@@ -35,7 +35,8 @@ public class Cadastro extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		RequestDispatcher dispatcher;
+		String pagina = null;
 		System.out.println(request.getParameter("id"));
 		System.out.println(request.getParameter("nome"));
 		System.out.println(request.getParameter("senha"));
@@ -55,10 +56,11 @@ public class Cadastro extends HttpServlet {
 			LoginDAO regDAO = new LoginDAO();
 			try {
 				regDAO.incluir(registro);
-				RequestDispatcher rd = request.getRequestDispatcher("../pagina01.html");
+				pagina = "pagina01.html";
+			//	RequestDispatcher rd = request.getRequestDispatcher("../pagina01.html");
 			//	request.setAttribute("titulo", "Inclusão de Usuario");
 			//	request.setAttribute("usuario", registro);
-				rd.forward(request, response);
+			//	rd.forward(request, response);
 			} catch (Exception e) {
 				PrintWriter out = response.getWriter();
 				out.println("Erro de Inclusão.");
@@ -71,5 +73,8 @@ public class Cadastro extends HttpServlet {
 			out.println("Erro de abertura de conexão.");
 			e.printStackTrace();
 		}
+		System.out.println("forward: " + pagina);
+		dispatcher = request.getRequestDispatcher(pagina);
+		dispatcher.forward(request, response);
 	}
 }
