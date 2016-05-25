@@ -30,7 +30,7 @@
 			<fieldset>
 			<legend><fmt:message key="carro.legenda"/></legend>
 				
-				<label for="idMunicipio"><fmt:message key="carro.codigo"/></label> 
+				<label for="idCarro"><fmt:message key="carro.codigo"/></label> 
 				<input id="idCarro" type="text" name="idCarro" /> 
 				
 				<input type="hidden" name="logica" value="consultar" />

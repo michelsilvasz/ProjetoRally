@@ -25,7 +25,7 @@
 	</titulo> </aside>
 
 	<fundo_menu_escolha1> 
-					<c:if test="${municipios != null}">
+					<c:if test="${carros != null}">
 						<h1 class="nivel-um">
 							<c:out value='${titulo}' />
 						</h1>
@@ -39,11 +39,11 @@
 									<td><fmt:message key="carro.nome"/></td>
 									<td><fmt:message key="carro.uf"/></td>
 								</tr>
-								<c:forEach var='item' items='${municipios}'>
+								<c:forEach var='item' items='${carros}'>
 									<tr>
-										<td><c:out value='${item.getValue().idMunicipio}' /></td>
-										<td><c:out value='${item.getValue().nomeMunicipio}' /></td>
-										<td><c:out value='${item.getValue().ufMunicipio}' /></td>
+										<td><c:out value='${item.getValue().idCarro}' /></td>
+										<td><c:out value='${item.getValue().nomeCarro}' /></td>
+										<td><c:out value='${item.getValue().ufCarro}' /></td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -57,7 +57,7 @@
 						</p>
 					
 					
-				<P>Listagem de Municipios</P>
+				<P>Listagem de Carros</P>
 				<table>
 					<%List<Carros> registros = (List<Carros>) request.getAttribute("carros");%>
 				    <tr>
