@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <fmt:setLocale value="pt_BR" />
 <link rel="stylesheet" type="text/css" href="estilo1.css"/>
-<title>Alteração de Município/></title>
+<title>Alteração de Carro/></title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 	</titulo> </aside>
 
 	<fundo_menu_escolha1> 
-	<c:if test="${carros == null}">
+	<c:if test="${carro == null}">
 		<form action="../AlterarCarros" method="post">
 			<fieldset>
 			<legend><fmt:message key="carro.legenda"/></legend>
@@ -46,7 +46,7 @@
 	 	
 	 	
 	 	
-	 	<c:if test="${carros != null}">
+	 	<c:if test="${carro != null}">
 		
 		
 		<form action="../AlterarCarros" method="post">
@@ -54,10 +54,13 @@
 				<legend><fmt:message key="carro.legenda"/></legend>
 				
 				<label for="idCarro"><fmt:message key="carro.codigo"/></label> 
-				<input id="idCarro" type="text" name="idCarro" value="${municipio.idMunicipio}" /> 
+				<input id="idCarro" type="text" name="idCarro" value="${carro.idCarro}" /> 
 				
 				<label for="nomeCarro"><fmt:message key="carro.nome"/></label>
-				<input id="nomeCarro" type="text" name="nomeCarro" value="${municipio.nomeMunicipio}" />
+				<input id="nomeCarro" type="text" name="nomeCarro" value="${carro.nomeCarro}" />
+				
+				<label for="modeloCarro"><fmt:message key="carro.mod"/></label>
+				<input id="modeloCarro" type="text" name="modeloCarro" value="${carro.modeloCarro}" />
 				
 				<label for="uf"><fmt:message key="carro.uf"/></label> 
 				<select id="uf" name="uf">
@@ -84,7 +87,7 @@
 		</p>
 	</c:if>
 	
-	<P>Alteração de Municipio</P>
+	<P>Alteração de Carro</P>
 	<%
 	Carros carros = (Carros) request.getAttribute("carros");
 	if (carros == null) {
@@ -101,10 +104,11 @@
 	}else{
 	%>
 	
-		<form action="AlterarCarros" method="post" >
-			IdMunicipio: <input	type="text" name="idCarros" value="<%=carros.getIdCarros()%>" /><br />
-			<fmt:message key="carros.nome"/><input type="text" name="nomeCarros" value="<%=carros.getNomeCarros()%>" /><br />
-			UF: <input type="text" name="ufCarros" value="<%=carros.getUfCarros() %>"/><br />
+		<form action="../AlterarCarros" method="post" >
+			IdMunicipio: <input	type="text" name="idCarro" value="<%=carros.getIdCarros()%>" /><br />
+			<fmt:message key="carro.nome"/><input type="text" name="nomeCarro" value="<%=carros.getNomeCarros()%>" /><br />
+			<fmt:message key="carro.mod"/><input type="text" name="modeloCarro" value="<%=carros.getModeloCarros()%>" /><br />
+			UF: <input type="text" name="uf" value="<%=carros.getUfCarros() %>"/><br />
 			<input type="hidden" name="logica" value="alterar"/>
 	   		<input type="submit" value="Alterar"/>
 		</form>

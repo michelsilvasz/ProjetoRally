@@ -15,7 +15,7 @@
 
 	<aside> <titulo>
 				<h1>
-					<marquee> <img src="resources/img/bandeira1.png"></img>ALTERAÇÃO... 
+					<marquee> <img src="resources/img/bandeira1.png"></img>CONSULTA... 
 					<img src="resources/img/bandeira1.png"></img></marquee>
 				</h1>
 			</titulo> 

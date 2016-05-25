@@ -8,7 +8,14 @@ public class Carros implements Serializable {
 	private Integer idCarros;
 	private String nomeCarros;
 	private String ufCarros;
+	private String modeloCarros;
 	
+	public String getModeloCarros() {
+		return modeloCarros;
+	}
+	public void setModeloCarros(String modeloCarros) {
+		this.modeloCarros = modeloCarros;
+	}
 	public Integer getIdCarros() {
 		return idCarros;
 	}
@@ -29,7 +36,7 @@ public class Carros implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "[" + idCarros + " " + nomeCarros + "-" + ufCarros + "]";
+		return "[" + idCarros + " " + nomeCarros + " " + modeloCarros + "-" + ufCarros + "]";
 	}
 	public Carros() {
 		super();

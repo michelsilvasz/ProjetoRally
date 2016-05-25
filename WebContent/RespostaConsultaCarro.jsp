@@ -39,13 +39,17 @@
 									<td><c:out value='${carro.nomeCarro}' /></td>
 								</tr>
 								<tr>
+									<td><fmt:message key="carro.mod"/></td>
+									<td><c:out value='${carro.modeloCarro}' /></td>
+								</tr>
+								<tr>
 									<td><fmt:message key="carro.uf"/></td>
 									<td><c:out value='${carro.ufCarro}' /></td>
 								</tr>
 							</table>
 						</fieldset>
 					</c:if>
-					<c:if test="${municipio == null}">
+					<c:if test="${carro == null}">
 						<c:out value="<fmt:message key="geral.alertaDados"/>" />
 					</c:if>
 					<p>
@@ -61,6 +65,7 @@
 					if(carro != null){%>
 					     <tr><td>Id: </td><td><%out.println(carro.getIdCarros());%></td></tr>
 						 <tr><td>Nome: </td><td><%out.println(carro.getNomeCarros());%> </td></tr>
+						 <tr><td>Modelo: </td><td><%out.println(carro.getModeloCarros());%> </td></tr>
 						 <tr><td>UF: </td><td><%out.println(carro.getUfCarros()); %></td></tr>
 					<%}%>
 				</table>
