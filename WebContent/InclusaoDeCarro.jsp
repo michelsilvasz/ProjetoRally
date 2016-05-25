@@ -25,7 +25,7 @@
 	<fundo_menu_escolha1> 
 				<h1 class="nivel-um"><fmt:message key="carro.titulo.inclusao"/></h1>
 			
-				<form action="../IncluirCarro" method="post">
+				<form action="IncluirCarro" method="post">
 					<fieldset>
 						<legend><fmt:message key="carro.legenda"/></legend>
 						

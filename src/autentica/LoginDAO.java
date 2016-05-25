@@ -7,13 +7,24 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import autentica.Usuario;;
+
 public class LoginDAO {
 	private Connection con;
 
 	public LoginDAO() throws SQLException {
 		this.con = ConnectionFactory.getConnection();
 	}
-
+	
+	@Override
+	public void finalize() throws SQLException {
+//		Properties properties = new Properties();
+//		properties.put("user", "");
+//		properties.put("password", "");
+//		this.connection.setClientInfo(properties);
+		con.close();
+	}
+	
 	// Pesquisar usuario
 	public Usuario validaLogin(String usuario) {
 		String sql = "SELECT * FROM usuario WHERE nome='" + usuario + "';";
@@ -43,25 +54,25 @@ public class LoginDAO {
 
 		return null;
 	}
-	
-	//Cadastro usuario
-		public Usuario cadastraUser(String nome, String senha, String email, String datanasci, String telefone) throws RuntimeException, SQLException {
-			Usuario usu;
-			String sqli = "INSERT INTO USUARIO (NOME, SENHA, EMAIL, TELEFONE, data_nascimento) VALUES (?,?,?,?,?)";
-			PreparedStatement stmt = this.con.prepareStatement(sqli);
-			try {
-				stmt.setString(1, nome);
-				stmt.setString(2, senha);
-				stmt.setString(3, email);
-				stmt.setString(4, telefone);
-				stmt.setString(5, datanasci);
-				ResultSet rs = stmt.executeQuery();
-			}catch (SQLException e){
-				throw new RuntimeException(e);
-			} finally {
-				stmt.close();
-			}
-			return null;
+	public void incluir(Usuario usu) throws RuntimeException, SQLException {
+		String sql = "INSERT INTO USUARIO (ID, NOME, SENHA, EMAIL, TELEFONE, data_nascimento) VALUES (?,?,?,?,?,?)";
+		java.sql.PreparedStatement stmt = con.prepareStatement(sql);
+		try {
+			stmt.setInt(1, (int) usu.getId());
+			stmt.setString(2, usu.getNome());
+			stmt.setString(3, usu.getSenha());
+			stmt.setString(4, usu.getEmail());
+			stmt.setString(5, usu.getTelefone());
+			stmt.setString(6, usu.getData_ns());
+			stmt.execute();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			stmt.close();
 		}
+	}
+	
+			
+		
 		
 }
