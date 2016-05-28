@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Super Rally</title>
+<link rel="stylesheet" type="text/css" href="estilo1.css"/>
+
+
+</head>
+
+<body>
+	<aside> <titulo>
+	<h1>
+		<marquee> <img src="resources/img/bandeira1.png"></img>Escolha
+		a Pista... <img src="resources/img/bandeira1.png"></img></marquee>
+	</h1>
+	</titulo> </aside>
+
+	<fundo_menu_escolha> <select name="pistas"
+		id="pistas" class="basic">
+		<option value=" " selected="selected">Escolha a Pista</option>
+		<option value="BR" onchange="showValue(this.value)">Brasil
+</option>
+		<option value="AR">Argentina</option>
+		<option value="BO">Bolivia</option>
+		<option value="CH">Chile</option>
+		<option value="CO">Colombia</option>
+		<option value="EQ">Equador</option>
+		<option value="PR">Paraguai</option>
+		<option value="UR">Uruguai</option>
+	</select> <a href="#" class="botao_2">OK</a>
+
+	<div id="BR" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Brasil.jpg" />
+	</div>
+	<div id="AR" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Argentina.gif" />
+	</div>
+	<div id="BO" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Bolivia.png" />
+	</div>
+	<div id="CH" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/chile.gif" />
+	</div>
+	<div id="CO" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Colombia.gif" />
+	</div>
+	<div id="EQ" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Equador.jpg" />
+	</div>
+	<div id="PR" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Paraguai.jpg" />
+	</div>
+	<div id="UR" class="formulario" style="display: none">
+		&nbsp;&nbsp;&nbsp;&nbsp; <img src="resources/img/Uruguai.png" />
+	</div>
+
+	</fundo_menu_escolha>
+
+
+	<script>
+		var select = document.getElementById("pistas");
+		var formularios = document.querySelectorAll('.formulario');
+		select.onchange = function() {
+			for (var i = 0; i < formularios.length; i++)
+				formularios[i].style.display = 'none';
+			var divID = select.options[select.selectedIndex].value;
+			var div = document.getElementById(divID);
+			div.style.display = 'block';
+		};
+	</script>
+
+
+</body>
+</html>
