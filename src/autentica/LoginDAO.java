@@ -71,6 +71,38 @@ public class LoginDAO {
 			stmt.close();
 		}
 	}
+	public void alterar(Usuario usu) throws RuntimeException, SQLException {
+		String sql = "update USUARIO set NOME=? , SENHA=?, EMAIL=?, TELEFONE=?, data_nascimento=?  where ID=?";
+		java.sql.PreparedStatement stmt = con.prepareStatement(sql);
+		try {
+			
+			stmt.setString(1, usu.getNome());
+			stmt.setString(2, usu.getSenha());
+			stmt.setString(3, usu.getEmail());
+			stmt.setString(4, usu.getTelefone());
+			stmt.setString(5, usu.getData_ns());
+			stmt.setInt(6, (int) usu.getId());
+			stmt.execute();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			stmt.close();
+		}
+	}
+	
+	public void excluir(Usuario usu) throws RuntimeException, SQLException {
+		String sql = "delete from USUARIO where ID = ?";
+		java.sql.PreparedStatement stmt = con.prepareStatement(sql);
+		try {
+			stmt.setInt(1, (int) usu.getId());
+			stmt.execute();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			stmt.close();
+		}
+	}
+	
 	
 			
 		
