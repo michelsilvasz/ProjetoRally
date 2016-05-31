@@ -21,10 +21,7 @@ public class CorridaDAO {
 	
 	@Override
 	public void finalize() throws SQLException {
-//		Properties properties = new Properties();
-//		properties.put("user", "");
-//		properties.put("password", "");
-//		this.connection.setClientInfo(properties);
+
 		con.close();
 	}
 	public void incluir(DadosCorrida registro) throws RuntimeException, SQLException {

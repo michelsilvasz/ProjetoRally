@@ -20,20 +20,23 @@
 	</h1>
 	</titulo> </aside>
 
-	<fundo_menu_escolha> <select name="pistas"
-		id="pistas" class="basic">
-		<option value=" " selected="selected">Escolha a Pista</option>
-		<option value="BR" onchange="showValue(this.value)">Brasil
-</option>
-		<option value="AR">Argentina</option>
-		<option value="BO">Bolivia</option>
-		<option value="CH">Chile</option>
-		<option value="CO">Colombia</option>
-		<option value="EQ">Equador</option>
-		<option value="PR">Paraguai</option>
-		<option value="UR">Uruguai</option>
-	</select> <a href="#" class="botao_2">OK</a>
-
+	<fundo_menu_escolha> 
+	<form method="post" action="Corrida">
+			<select name="pistas"
+				id="pistas" class="basic">
+				<option value=" " selected="selected">Escolha a Pista</option>
+				<option value="BR" onchange="showValue(this.value)">Brasil
+				</option>
+				<option value="AR">Argentina</option>
+				<option value="BO">Bolivia</option>
+				<option value="CH">Chile</option>
+				<option value="CO">Colombia</option>
+				<option value="EQ">Equador</option>
+				<option value="PR">Paraguai</option>
+				<option value="UR">Uruguai</option>
+			</select> 
+			<br></br><input type="submit" class="botao_1" value="OK" />
+    </form>
 	<div id="BR" class="formulario" style="display: none">
 		<br>&nbsp; <img src="resources/img/Brasil.jpg" />
 	</div>

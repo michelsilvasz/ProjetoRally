@@ -98,5 +98,18 @@ a:hover {
 a:active {
 	text-decoration: none
 	}
+
+.botao_1 {
+	padding: 1px 20px;
+	height: 20px;
+	width: 60px;
+	position: absolute;
+	left: 245px;
+	background: white;
+	color: red;
+	font-size: 10px border: 3px solid black;
+	border-radius: 8px;
+	type: submit;
+}
 	
 	
