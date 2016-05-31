@@ -57,10 +57,7 @@ public class Cadastro extends HttpServlet {
 			try {
 				regDAO.incluir(registro);
 				pagina = "pagina01.html";
-			//	RequestDispatcher rd = request.getRequestDispatcher("../pagina01.html");
-			//	request.setAttribute("titulo", "Inclusão de Usuario");
-			//	request.setAttribute("usuario", registro);
-			//	rd.forward(request, response);
+			
 			} catch (Exception e) {
 				PrintWriter out = response.getWriter();
 				out.println("Erro de Inclusão.");
