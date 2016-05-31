@@ -13,14 +13,14 @@ import thread.Podium;
 /**
  * Servlet implementation class Teste
  */
-@WebServlet("/Teste")
-public class Teste extends HttpServlet {
+@WebServlet("/Corrida")
+public class Corrida extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Teste() {
+    public Corrida() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +32,7 @@ public class Teste extends HttpServlet {
         Podium campeao = new Podium();  
         Carro carro1 = new Carro("Ayrton Senna", campeao);  
         Carro carro2 = new Carro("Nelson Piquet", campeao);  
-        Carro carro3 = new Carro("Michael Shuemaker", campeao);  
+        Carro carro3 = new Carro("Michael Shumaker", campeao);  
         Carro carro4 = new Carro("Rubens Barrichello", campeao);  
                         
         carro1.start();  
@@ -52,15 +52,8 @@ public class Teste extends HttpServlet {
         {  
             e.printStackTrace();  
         }  
-        System.out.println("Fim do Rally.");  
+        System.out.println("\nFim do Rally.");  
         System.out.println("o 1° colocado CAMPEAO: "+ campeao.getVencedor()); 
         
     }
-    
-    
-	
-    
-    
-	
-
 }
