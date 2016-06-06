@@ -31,7 +31,7 @@
                 CorridaDAO cd = new CorridaDAO();
                  List<DadosCorrida> l = cd.lista();
 				for (DadosCorrida v1 : l ) {
-				int i=1;
+				
 		%>
 		
 		<table align= "center" border= "1"  cellspacing= "5px"  width= "100%">
