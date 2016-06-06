@@ -59,7 +59,7 @@
 				
 				
 				
-				<P>Resultado da Consulta de Municipio</P>
+				<P>Resultado da Consulta de Carros</P>
 				<table>
 					<%Carros carro = (Carros)request.getAttribute("carro");
 					if(carro != null){%>

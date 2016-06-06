@@ -78,7 +78,7 @@ import thread.Podium;
                     registro.setPiloto(corredor);
                     registro.setTempcurva(tempVolt);
                     registro.setVelocidaC(velocidV);
-                    
+                    registro.setVolta(i);
                     regDAO.incluir(registro); 
                     
                    

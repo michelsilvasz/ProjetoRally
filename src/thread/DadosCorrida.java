@@ -3,7 +3,15 @@ import java.io.Serializable;
 
 public class DadosCorrida implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	private Integer volta;
+	public Integer getVolta() {
+		return volta;
+	}
+
+	public void setVolta(Integer volta) {
+		this.volta = volta;
+	}
+
 	private Integer Tempcurva;
 	private Integer velocidaC;
 	private String piloto;

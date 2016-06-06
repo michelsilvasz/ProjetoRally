@@ -21,7 +21,7 @@
 	</titulo> </aside>
 
 	<fundo_menu_escolha> 
-	<form method="post" action="Corrida">
+	<form method="post" action="Listar">
 			<select name="pistas"
 				id="pistas" class="basic">
 				<option value=" " selected="selected">Escolha a Pista</option>
@@ -36,7 +36,7 @@
 				<option value="UR">Uruguai</option>
 			</select> 
 			<br></br><input type="submit" class="botao_1" value="OK" />
-    </form>
+    
 	<div id="BR" class="formulario" style="display: none">
 		<br>&nbsp; <img src="resources/img/Brasil.jpg" />
 	</div>
@@ -76,7 +76,19 @@
 			div.style.display = 'block';
 		};
 	</script>
-
+ 
+ <script>
+ function executa() {
+	 new  Ajax . Request ( 'Corrida' ,  { 
+		  method : 'post' , 
+		  onSuccess :  function ( transport )  { 
+		    var  response  =  transport . responseText  ||  "no texto de resposta " ; 
+		    alerta ( " sucesso \ n \ n "!  +  resposta ); 
+		  }, 
+		  onFailure :  função ()  {  alerta ( " Alguma coisa deu errado ... ' );  } 
+		});
+}
+ </script>
 
 </body>
 </html>
