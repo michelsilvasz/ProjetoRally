@@ -63,7 +63,7 @@ public class Cadastro extends HttpServlet {
 				out.println("Erro de Inclusão.");
 				e.printStackTrace();
 			} finally {
-				regDAO.finalize();
+			//	regDAO.finalize();
 			}
 		} catch (Exception e) {
 			PrintWriter out = response.getWriter();

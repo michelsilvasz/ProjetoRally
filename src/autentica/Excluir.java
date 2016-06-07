@@ -14,14 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ExcluirCadastro
  */
-@WebServlet("/ExcluirCadastro")
-public class ExcluirCadastro extends HttpServlet {
+@WebServlet("/Excluir")
+public class Excluir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ExcluirCadastro() {
+    public Excluir() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import autentica.Usuario;;
+import autentica.Usuario;
+import metodosSQL.Carros;
+import thread.DadosCorrida;;
 
 public class LoginDAO {
 	private Connection con;
@@ -18,10 +20,7 @@ public class LoginDAO {
 	
 	@Override
 	public void finalize() throws SQLException {
-//		Properties properties = new Properties();
-//		properties.put("user", "");
-//		properties.put("password", "");
-//		this.connection.setClientInfo(properties);
+
 		con.close();
 	}
 	
@@ -44,8 +43,8 @@ public class LoginDAO {
 
 				return usu;
 			}
-			rs.close();
-			stmt.close();
+		//	rs.close();
+		//	stmt.close();
 
 		} catch (SQLException e) {
 			System.out.println("Usuário \"" + usuario + "\" não encontrado!");
@@ -68,7 +67,7 @@ public class LoginDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
-			stmt.close();
+			//stmt.close();
 		}
 	}
 	public void alterar(Usuario usu) throws RuntimeException, SQLException {
@@ -86,23 +85,50 @@ public class LoginDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
-			stmt.close();
+		//	stmt.close();
 		}
 	}
 	
 	public void excluir(Usuario usu) throws RuntimeException, SQLException {
-		String sql = "delete from USUARIO where ID = ?";
+		String sql = "delete from usuario where ID ="+usu.getId()+";";
 		java.sql.PreparedStatement stmt = con.prepareStatement(sql);
 		try {
-			stmt.setInt(1, (int) usu.getId());
+			//stmt.setInt(1, (int) usu.getId());
 			stmt.execute();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
-			stmt.close();
+		//	stmt.close();
 		}
 	}
-	
+	public List<Usuario> lista() {
+		Usuario usu = new Usuario();
+		String sql = "SELECT NOME, data_nascimento, EMAIL, TELEFONE FROM usuario where ID = "+1+" ;";
+		List<Usuario> lista = new ArrayList<Usuario>();
+		
+		try {
+		PreparedStatement stmt = con.prepareStatement(sql);
+		//  stmt.setInt(1, (int) usu.getId());
+	    ResultSet res = stmt.executeQuery();
+	    
+			while(res.next()){
+				Usuario v = new Usuario();
+				
+				v.setNome(res.getString("NOME"));
+				v.setData_ns(res.getString("data_nascimento"));
+				v.setEmail(res.getString("EMAIL"));
+				v.setTelefone(res.getString("TELEFONE"));
+				lista.add(v);
+			}
+			
+			stmt.execute();
+			//stmt.close();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		} finally {
+			}
+		return lista;
+		}
 	
 			
 		
